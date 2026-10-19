@@ -85,5 +85,6 @@ class Dashboard:
         )
 
         assert "Success" in message.text
+        print("pritam")
 
 
