@@ -16,5 +16,6 @@ class Login:
         return dash_board
         print("m")
         print("q")
+        print("r")
 
 
