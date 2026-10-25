@@ -3,6 +3,7 @@ import time
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from conftest import Sidesearch
+from POM.Admin.job.jobtitles import Jobtitle
 class Usermanagementadmins:
     def __init__(self,driver):
         self.driver=driver
@@ -62,7 +63,7 @@ class Usermanagementadmins:
         employee_option = WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((
                 By.XPATH,
-                "//div[@role='listbox']//span[normalize-space()='Peter Mac Anderson']"
+                "//div[@role='listbox']//span[normalize-space()='Ranga Akunuri']"
             ))
         )
         employee_option.click()
@@ -79,10 +80,12 @@ class Usermanagementadmins:
             ))
         ).click()
 
-        self.driver.find_element(*self.username).send_keys("Pritam9889")
+        self.driver.find_element(*self.username).send_keys("Pritam98897")
         self.driver.find_element(*self.password).send_keys("Pritam@9889")
         self.driver.find_element(*self.confirm_password).send_keys("Pritam@9889")
         self.driver.find_element(*self.save).click()
+        jobtitle=Jobtitle(self.driver)
+        return jobtitle
 
 
 

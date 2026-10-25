@@ -4,10 +4,12 @@ import pytest
 from loginpage import Login
 from conftest import Sidesearch
 from POM.Admin.usermanagementadmin import Usermanagementadmins
+
 test_data_path="Data/Data.json"
 with open(test_data_path)as f:
     test_data=json.load(f)
     login_data=test_data["logincredential"]
+s="file:///C:/Users/prita/Downloads/Pritam_Kumar_Pradhan_v2.pdf"
 @pytest.mark.parametrize("login_test_list",login_data)
 def testinstancebrowser(browserinstance, login_test_list):
     driver=browserinstance
@@ -39,10 +41,18 @@ def testinstancebrowser(browserinstance, login_test_list):
             # Admin page par Add button click
             usermanageadmin = Usermanagementadmins(driver)
             usermanageadmin.add()
-            usermanageadmin.adduser()
+            jobtitle=usermanageadmin.adduser()
 
             # Loop stop
             break
+
+
+    jobtitle.jobbutton()
+    jobtitle.delete_jobtittle()
+    jobtitle.addjobtitle()
+    jobtitle.capture_message()
+
+    driver.close()
 
 
 
