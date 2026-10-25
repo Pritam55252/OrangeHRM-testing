@@ -1,0 +1,17 @@
+Index: loginpage.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from selenium.webdriver.common.by import By\r\nfrom selenium import webdriver\r\nfrom dashboard import Dashboard\r\nclass Login:\r\n    def __init__(self,driver):\r\n        self.driver=driver\r\n        self.username=(By.XPATH,\"//input[@name='username']\")\r\n        self.password=(By.XPATH,\"//input[@type='password']\")\r\n        self.login=(By.XPATH,\"//button[@type='submit']\")\r\n\r\n    def logins(self,username,password):\r\n        self.driver.find_element(*self.username).send_keys(username)\r\n        self.driver.find_element(*self.password).send_keys(password)\r\n        self.driver.find_element(*self.login).click()\r\n        dash_board= Dashboard(self.driver)\r\n        return dash_board\r\n        print(\"m\")\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/loginpage.py b/loginpage.py
+--- a/loginpage.py	(revision 62d3c0ac5745bcf29a774254dcd13cb354d9903c)
++++ b/loginpage.py	(date 1792418612315)
+@@ -15,5 +15,6 @@
+         dash_board= Dashboard(self.driver)
+         return dash_board
+         print("m")
++        print("q")
+ 
+ 
